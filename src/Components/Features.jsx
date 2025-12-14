@@ -11,7 +11,7 @@ export default function Features() {
             key={i}
             className="bg-[var(--color-card)] border border-white/10 rounded-xl p-8 text-center hover:scale-[1.02] transition"
           >
-            <h3 className="text-4xl font-bold text-[var(--color-primary)]">
+            <h3 className="text-4xl font-bold text-[#940200]">
               45%
             </h3>
             <p className="mt-2 font-semibold">Cost Efficiency</p>

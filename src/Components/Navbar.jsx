@@ -22,7 +22,7 @@ export default function Navbar() {
         <div className="flex gap-8 font-semibold">
           <Link
             href="/"
-            className="bg-[var(--color-primary)] px-4 py-1 rounded"
+            className="bg-[#940200] px-4 py-1 rounded"
           >
             HOME
           </Link>

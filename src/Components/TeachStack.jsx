@@ -37,7 +37,6 @@ const Row = ({ label, items }) => (
           bg-[#2a2233]/80
           border border-white/10
           text-sm font-medium text-white
-          backdrop-blur
         "
       >
         {Icon && (
@@ -63,13 +62,21 @@ export default function TechStack() {
             We Create applications using below{" "}
             <span className="relative inline-block">
               Technologies
-              <span className="absolute left-0 -bottom-2 w-full h-[2px] bg-[var(--color-primary)]" />
+              <span className="absolute left-0 -bottom-2 w-full h-[2px] bg-[#940200]" />
             </span>
           </h2>
         </div>
 
-        {/* CONTAINER */}
-        <div className="rounded-3xl border border-white/15 bg-black/40 backdrop-blur-xl p-8 space-y-6">
+        {/* CONTAINER (BACKGROUND IMAGE INSIDE BORDER) */}
+        <div
+          className="
+            rounded-3xl
+            border border-white/15
+            p-8 space-y-6
+            bg-no-repeat bg-center bg-cover
+          "
+          style={{ backgroundImage: "url('/techstack-bg.png')" }}
+        >
 
           <Row
             label="Frontend"
