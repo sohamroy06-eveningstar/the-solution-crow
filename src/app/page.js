@@ -5,6 +5,7 @@ import TechStack from "@/Components/TeachStack";
 import ServicesWithDetails from "@/Components/ServiceWithDetails";
 import AboutProcess from "@/Components/AboutProgress";
 import ContactSection from "@/Components/ContactSection";
+import Footer from "@/Components/Footer";
 
 
 export default function Home() {
@@ -33,6 +34,7 @@ export default function Home() {
     <ServicesWithDetails/>
     <AboutProcess/>
     <ContactSection/>
+    <Footer/>
     </>
   );
 }

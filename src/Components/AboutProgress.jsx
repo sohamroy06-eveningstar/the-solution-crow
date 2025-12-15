@@ -12,9 +12,9 @@ export default function AboutProcess() {
             id="process-title"
             className="text-3xl md:text-4xl font-semibold text-white mb-4"
           >
-            The Crow’s Process — From Vision to{" "}
+            The Crow’s Process — From {" "}
             <span className="relative inline-block">
-              Execution
+              Vision to Execution
               <span className="absolute left-0 -bottom-2 w-full h-[2px] bg-[#940200]" />
             </span>
           </h2>
@@ -68,70 +68,58 @@ export default function AboutProcess() {
   );
 }
 
-/* ---------------- SHARED SHAPE ---------------- */
-
-const PROCESS_SHAPE =
-  "polygon(6% 0%, 94% 0%, 100% 18%, 88% 100%, 12% 100%, 0% 18%)";
-
-const PURPLE = "#7c3aed";
-
 /* ---------------- PROCESS CARD ---------------- */
 
 function ProcessCard({ title, subtitle, text, observation }) {
   return (
     <article
-      className="relative p-8 text-center border overflow-hidden"
-      style={{
-        clipPath: PROCESS_SHAPE,
-        borderColor: PURPLE,
-        backgroundColor: observation ? "#0f1b17" : "#940200",
-      }}
+      className={`
+        relative p-8 text-center
+        rounded-2xl border
+        overflow-hidden
+        ${
+          observation
+            ? "bg-[#0f1b17] border-[#7c3aed]"
+            : "bg-[#940200] border-[#7c3aed]"
+        }
+      `}
     >
       {/* BACKGROUND IMAGE — ONLY OBSERVATION */}
       {observation && (
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 rounded-2xl"
           style={{
             backgroundImage: "url('/observation-bg.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            clipPath: PROCESS_SHAPE,
           }}
         />
       )}
 
       {/* DARK OVERLAY — ONLY OBSERVATION */}
       {observation && (
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(15,27,23,0.85), rgba(15,27,23,0.95))",
-            clipPath: PROCESS_SHAPE,
-          }}
-        />
+        <div className="absolute inset-0 bg-black/80 rounded-2xl" />
       )}
 
-      {/* PURPLE GLOW — ALL CARDS */}
+      {/* PURPLE GLOW */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 rounded-2xl pointer-events-none"
         style={{
-          clipPath: PROCESS_SHAPE,
-          boxShadow: "0 0 55px rgba(124,58,237,0.35)",
+          boxShadow: "0 0 40px rgba(124,58,237,0.35)",
         }}
       />
 
       {/* CONTENT */}
       <div className="relative z-10">
-        <h3 className="text-lg font-semibold text-white mb-1">
+        <h3 className="text-4xl font-semibold text-white mb-1">
           {title}
         </h3>
 
-        <p className="text-sm text-white/60 mb-4">
+        <p className=" text-white mb-4">
           {subtitle}
         </p>
 
-        <p className="text-sm text-white/70 leading-relaxed">
+        <p className=" text-white leading-relaxed">
           {text}
         </p>
       </div>

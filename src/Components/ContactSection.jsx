@@ -12,9 +12,9 @@ export default function ContactSection() {
             id="contact-title"
             className="text-3xl md:text-4xl font-semibold text-white"
           >
-            Let’s Talk About Your Next{" "}
+            Let’s Talk About Your{" "}
             <span className="relative inline-block">
-              Project
+              Next Project
               <span className="absolute left-0 -bottom-2 w-full h-[2px] bg-[#940200]" />
             </span>
           </h2>
@@ -26,11 +26,11 @@ export default function ContactSection() {
 
             {/* LEFT CONTENT */}
             <div>
-              <h3 className="text-3xl font-semibold text-white mb-2">
+              <h3 className="text-5xl italic font-semibold text-white mb-2">
                 Let’s Build{" "}
-                <span className="text-[#940200]">
+                <p className="text-[var(--color-primary)]">
                   Something Brilliant.
-                </span>
+                </p>
               </h3>
 
               <p className="text-white/60 mb-8">
@@ -125,7 +125,7 @@ export default function ContactSection() {
               {/* SUBMIT */}
               <button
                 type="submit"
-                className="mt-4 inline-flex items-center justify-center bg-[#940200] hover:bg-red-700 transition px-6 py-3 rounded-md font-semibold text-white"
+                className="mt-4 inline-flex items-center justify-center bg-[var(--color-primary)] hover:bg-red-700 transition px-6 py-3 rounded-md font-semibold text-white"
               >
                 Send Message
               </button>

@@ -1,80 +1,96 @@
 import {
   FaReact,
-  FaAngular,
-  FaNodeJs,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
   FaPython,
   FaAws,
   FaDocker,
-  FaSalesforce,
+  FaGithub,
+  FaGitlab,
+  FaBitbucket,
+  FaAndroid,
+  FaHubspot,
 } from "react-icons/fa";
 import {
-  SiSvelte,
+  SiNextdotjs,
   SiDjango,
-  SiFlask,
-  SiExpress,
-  SiKubernetes,
+  SiFastapi,
+  SiGo,
+  SiDigitalocean,
   SiGooglecloud,
+  SiHeroku,
   SiFlutter,
   SiOpenai,
+  SiTerraform,
+  SiAnsible,
+  SiKubernetes,
+  SiJenkins,
+  SiPostman,
+  SiSelenium,
+  SiElasticsearch,
+  SiApache,
+  SiSentry,
 } from "react-icons/si";
-import { TbBrandAzure } from "react-icons/tb";
+
+/* ---------------- ROW ---------------- */
 
 const Row = ({ label, items }) => (
-  <div className="flex flex-wrap items-center gap-3">
-    {/* LEFT LABEL */}
-    <div className="min-w-[110px] flex items-center gap-2 text-sm text-white/70">
+  <div className="flex items-start gap-3">
+    {/* LABEL */}
+    <div className="min-w-[120px] shrink-0 flex items-center gap-2 text-sm text-white/70">
       <span>{label}</span>
-      <span>→</span>
+      <span aria-hidden="true">→</span>
     </div>
 
-    {/* PILLS */}
-    {items.map(({ name, icon: Icon, color }, i) => (
-      <div
-        key={i}
-        className="
-          flex items-center gap-2
-          px-4 py-2 rounded-lg
-          bg-[#2a2233]/80
-          border border-white/10
-          text-sm font-medium text-white
-        "
-      >
-        {Icon && (
-          <Icon
-            className="text-[16px]"
-            style={{ color }}
-          />
-        )}
-        <span>{name}</span>
-      </div>
-    ))}
+    {/* PILLS WRAPPER (RESPONSIVE FIX) */}
+    <div className="flex flex-wrap gap-3">
+      {items.map(({ name, icon: Icon, color }, i) => (
+        <div
+          key={i}
+          className="flex items-center gap-2 px-4 py-2 rounded-lg
+                     bg-[#2a2233]/80 border border-white/10
+                     text-sm font-medium text-white"
+        >
+          <Icon className="text-[16px]" style={{ color }} aria-hidden="true" />
+          <span>{name}</span>
+        </div>
+      ))}
+    </div>
   </div>
 );
 
+/* ---------------- MAIN ---------------- */
+
 export default function TechStack() {
   return (
-    <section className="py-24 px-6">
+    <section
+      className="py-24 px-6"
+      aria-labelledby="techstack-title"
+    >
       <div className="max-w-7xl mx-auto">
 
         {/* HEADING */}
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-semibold text-white">
+        <header className="text-center mb-8">
+          <h2
+            id="techstack-title"
+            className="text-3xl font-semibold text-white"
+          >
             We Create applications using below{" "}
             <span className="relative inline-block">
               Technologies
-              <span className="absolute left-0 -bottom-2 w-full h-[2px] bg-[#940200]" />
+              <span
+                className="absolute left-0 -bottom-2 w-full h-[2px] bg-[#940200]"
+                aria-hidden="true"
+              />
             </span>
           </h2>
-        </div>
+        </header>
 
-        {/* CONTAINER (BACKGROUND IMAGE INSIDE BORDER) */}
+        {/* CONTAINER */}
         <div
-          className="
-            rounded-3xl
-            border border-white/15
-            p-8 space-y-6
-            bg-no-repeat bg-center bg-cover
-          "
+          className="rounded-3xl border border-white/15 p-8 space-y-6
+                     bg-no-repeat bg-center bg-cover"
           style={{ backgroundImage: "url('/techstack-bg.png')" }}
         >
 
@@ -82,31 +98,45 @@ export default function TechStack() {
             label="Frontend"
             items={[
               { name: "React", icon: FaReact, color: "#61DAFB" },
-              { name: "Angular", icon: FaAngular, color: "#DD0031" },
-              { name: "SvelteKit", icon: SiSvelte, color: "#FF3E00" },
+              { name: "Next.js", icon: SiNextdotjs, color: "#FFFFFF" },
+              { name: "HTML", icon: FaHtml5, color: "#E34F26" },
+              { name: "CSS", icon: FaCss3Alt, color: "#1572B6" },
+              { name: "JavaScript", icon: FaJs, color: "#F7DF1E" },
             ]}
           />
 
           <Row
             label="Backend"
             items={[
-              { name: "Python", icon: FaPython, color: "#3776AB" },
               { name: "Django", icon: SiDjango, color: "#0C4B33" },
-              { name: "Flask", icon: SiFlask, color: "#FFFFFF" },
-              { name: "Node Js", icon: FaNodeJs, color: "#339933" },
-              { name: "Express", icon: SiExpress, color: "#FFFFFF" },
+              { name: "FastAPI", icon: SiFastapi, color: "#009688" },
+              { name: "Go", icon: SiGo, color: "#00ADD8" },
             ]}
           />
 
           <Row
             label="Cloud"
             items={[
-              { name: "Devops", icon: FaDocker, color: "#2496ED" },
               { name: "AWS", icon: FaAws, color: "#FF9900" },
-              { name: "Azure", icon: TbBrandAzure, color: "#0078D4" },
-              { name: "Docker", icon: FaDocker, color: "#2496ED" },
-              { name: "Kubernetes", icon: SiKubernetes, color: "#326CE5" },
+              { name: "DigitalOcean", icon: SiDigitalocean, color: "#0080FF" },
+              { name: "Bluehost", icon: FaAws, color: "#009AFF" },
+              { name: "Heroku", icon: SiHeroku, color: "#430098" },
               { name: "Google Cloud", icon: SiGooglecloud, color: "#4285F4" },
+            ]}
+          />
+
+          <Row
+            label="DevOps"
+            items={[
+              { name: "Docker", icon: FaDocker, color: "#2496ED" },
+              { name: "CI/CD", icon: SiJenkins, color: "#D24939" },
+              { name: "Ansible", icon: SiAnsible, color: "#EE0000" },
+              { name: "Terraform", icon: SiTerraform, color: "#844FBA" },
+              { name: "Kubernetes", icon: SiKubernetes, color: "#326CE5" },
+              { name: "GitHub", icon: FaGithub, color: "#FFFFFF" },
+              { name: "GitLab", icon: FaGitlab, color: "#FC6D26" },
+              { name: "Bitbucket", icon: FaBitbucket, color: "#2684FF" },
+              { name: "Jenkins", icon: SiJenkins, color: "#D24939" },
             ]}
           />
 
@@ -114,24 +144,44 @@ export default function TechStack() {
             label="Mobile"
             items={[
               { name: "Flutter", icon: SiFlutter, color: "#02569B" },
+              { name: "Android Native", icon: FaAndroid, color: "#3DDC84" },
             ]}
           />
 
           <Row
-            label="AI/ML"
+            label="AI / ML"
             items={[
-              { name: "Qwen 3" },
-              { name: "LLaMA 4" },
+              { name: "Ollama", icon: SiOpenai, color: "#FFFFFF" },
               { name: "OpenAI", icon: SiOpenai, color: "#FFFFFF" },
-              { name: "Gemini" },
-              { name: "Kimi K2" },
+              { name: "Cloud AI", icon: SiGooglecloud, color: "#4285F4" },
+              { name: "Gemini", icon: SiGooglecloud, color: "#4285F4" },
+              { name: "CrowLM", icon: SiOpenai, color: "#940200" },
             ]}
           />
 
           <Row
             label="CRM"
             items={[
-              { name: "Salesforce", icon: FaSalesforce, color: "#00A1E0" },
+              { name: "HubSpot", icon: FaHubspot, color: "#FF7A59" },
+              { name: "Crow CRM", icon: FaHubspot, color: "#940200" },
+            ]}
+          />
+
+          <Row
+            label="Testing"
+            items={[
+              { name: "Postman", icon: SiPostman, color: "#FF6C37" },
+              { name: "BrowserStack", icon: SiGooglecloud, color: "#F7A600" },
+              { name: "Selenium", icon: SiSelenium, color: "#43B02A" },
+            ]}
+          />
+
+          <Row
+            label="Others"
+            items={[
+              { name: "Elasticsearch", icon: SiElasticsearch, color: "#005571" },
+              { name: "Apache Solr", icon: SiApache, color: "#D22128" },
+              { name: "Sentry", icon: SiSentry, color: "#362D59" },
             ]}
           />
 

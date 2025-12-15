@@ -11,6 +11,7 @@ import {
   BarChart,
   Cpu,
   GitBranch,
+  Megaphone,
 } from "lucide-react";
 
 /* ---------------- DATA ---------------- */
@@ -114,6 +115,19 @@ const services = [
     ],
     cta: "Optimize DevOps",
   },
+  {
+  id: "digital-marketing",
+  title: "Digital Marketing",
+  short: "Digital marketing",
+  icon: Megaphone,
+  description: [
+    "Result-driven digital marketing strategies focused on growth, visibility, and conversions.",
+    "We help brands reach the right audience through SEO, paid ads, and content marketing.",
+    "Every campaign is data-backed, performance-tracked, and ROI focused.",
+  ],
+  cta: "Grow Your Brand",
+},
+
 ];
 
 /* ---------------- COMPONENT ---------------- */
@@ -125,25 +139,24 @@ export default function ServicesWithDetails() {
     <section className="py-24 px-6">
       <div className="max-w-7xl mx-auto">
 
-{/* Heading */}
-  <div className="flex justify-center mb-6">
-        <span className="bg-[#940200] px-6 py-2 rounded-full font-semibold">
-          Transform Your Idea into Reality
-        </span>
-      </div>
-       <h2 className="text-center text-3xl font-semibold mb-14">
-  In-Demand{" "}
-  <span className="relative inline-block text-white">
-    Services
-    <span className="absolute left-0 -bottom-2 w-full h-[2px] bg-[#940200]"></span>
-  </span>
-</h2>
+        {/* Heading */}
+        <div className="flex justify-center mb-6">
+          <span className="bg-[#940200] px-6 py-2 rounded-full font-semibold">
+            Transform Your Idea into Reality
+          </span>
+        </div>
 
+        <h2 className="text-center text-3xl font-semibold mb-14">
+          In-Demand{" "}
+          <span className="relative inline-block">
+            Services
+            <span className="absolute left-0 -bottom-2 w-full h-[2px] bg-[#940200]" />
+          </span>
+        </h2>
 
         {/* ---------- SERVICES GRID ---------- */}
         <div className="flex flex-col gap-6 mb-24">
 
-          {/* ROW 1 */}
           <div className="flex justify-center gap-6 flex-wrap">
             {services.slice(0, 3).map((service) => (
               <ServiceCard
@@ -155,7 +168,6 @@ export default function ServicesWithDetails() {
             ))}
           </div>
 
-          {/* ROW 2 */}
           <div className="flex justify-center gap-6 flex-wrap">
             {services.slice(3, 7).map((service) => (
               <ServiceCard
@@ -167,7 +179,6 @@ export default function ServicesWithDetails() {
             ))}
           </div>
 
-          {/* ROW 3 */}
           <div className="flex justify-center gap-6 flex-wrap">
             {services.slice(7).map((service) => (
               <ServiceCard
@@ -179,80 +190,58 @@ export default function ServicesWithDetails() {
             ))}
           </div>
         </div>
-   {/* ---------- DYNAMIC DETAILS (BACKGROUND IMAGE – EXACT MATCH) ---------- */}
-<section
-  className="
-    relative overflow-hidden
-    py-24 md:py-32
-    bg-black
-  "
-  aria-labelledby="service-title"
->
-  {/* BACKGROUND IMAGE (LEFT) */}
-  <div
-    className="
-      absolute inset-0
-      bg-no-repeat bg-left bg-contain
-    "
-    style={{
-      backgroundImage: "url('/crow-bg.png')",
-      backgroundPosition: "left center",
-    }}
-  />
 
-  {/* DARK OVERLAY */}
-  <div className="absolute inset-0 bg-black/70" />
+        {/* ---------- DYNAMIC DETAILS (IMAGE, NO OPACITY) ---------- */}
+        <section
+          className="relative py-24 md:py-32 bg-black overflow-hidden"
+          aria-labelledby="service-title"
+        >
+          {/* BACKGROUND IMAGE — FULL STRENGTH */}
+          <div
+            className="absolute inset-0 bg-no-repeat bg-left bg-contain"
+            style={{
+              backgroundImage: "url('/crow-bg.png')",
+              backgroundPosition: "left center",
+            }}
+          />
 
-  {/* RED GRADIENT (RIGHT SIDE) */}
-  <div
-    className="
-      absolute inset-0
-      bg-gradient-to-l
-      from-[#940200]/40
-      via-transparent
-      to-transparent
-    "
-  />
+          {/* CONTENT */}
+          <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
 
-  {/* CONTENT */}
-  <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+            {/* LEFT SPACE FOR IMAGE */}
+            <div />
 
-    {/* EMPTY LEFT (IMAGE SPACE) */}
-    <div />
+            {/* RIGHT CONTENT */}
+            <div className="max-w-xl text-center md:text-left">
+              <h2
+                id="service-title"
+                className="text-3xl md:text-5xl font-bold mb-6"
+              >
+                {active.title}
+              </h2>
 
-    {/* RIGHT TEXT */}
-    <div className="max-w-xl text-center md:text-left">
-      <h2
-        id="service-title"
-        className="text-3xl md:text-5xl font-bold mb-6"
-      >
-        {active.title}
-      </h2>
+              <div className="space-y-4 text-white text-sm md:text-base">
+                {active.description.map((text, i) => (
+                  <p key={i}>{text}</p>
+                ))}
+              </div>
 
-      <div className="space-y-4 text-white/70 text-sm md:text-base">
-        {active.description.map((text, i) => (
-          <p key={i}>{text}</p>
-        ))}
+              {/* CTA + RATING (RIGHT ALIGNED) */}
+              <div className="mt-8 flex flex-col sm:flex-row items-end sm:items-center gap-4 sm:gap-6 justify-end">
+                <button className="bg-[#940200] px-6 py-3 rounded font-semibold">
+                  {active.cta}
+                </button>
+
+                <span className="text-[#940200] font-bold">
+                  ★ 4.8
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
       </div>
-
-      <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center md:justify-start">
-        <button className="bg-[#940200] px-6 py-3 rounded font-semibold">
-          {active.cta}
-        </button>
-
-        <span className="text-[#940200] font-bold">
-          ★ 4.8
-        </span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-
-        </div>
     </section>
   );
 }
