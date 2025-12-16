@@ -14,8 +14,9 @@ export default function BackToPortfolio() {
           rounded-full
           border border-white/10
           text-sm font-semibold
-          text-gray-300
+          text-white
           transition-all duration-300
+          bg-[#940200]
           hover:text-white
           hover:border-[#940200]
           hover:bg-[#940200]/20

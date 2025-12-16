@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, MapPin,  } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
+
 
 export default function Footer() {
   return (
@@ -53,33 +52,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* CONTACT */}
-          <div>
-            <h4 className="font-semibold mb-4">Contact Us</h4>
-            <ul className="space-y-3 text-white/60 text-sm">
-  <li className="flex items-center gap-3">
-    <Mail size={16} className="text-[#940200]" />
-    <span>Email: support@solutioncrow.com</span>
-  </li>
-
-  <li className="flex items-center gap-3">
-    <Phone size={16} className="text-[#940200]" />
-    <span>Phone: +91 8617811488</span>
-  </li>
-
-  <li className="flex items-center gap-3">
-    <MapPin size={16} className="text-[#940200]" />
-    <span>Location: HazraLan, Bankura</span>
-  </li>
-
-  <li className="flex items-center gap-3">
-    <FaWhatsapp size={16} className="text-[#940200]" />
-    <span>WhatsApp: +91 8617811488</span>
-  </li>
-</ul>
-
           
-          </div>
+        
 
         </div>
 

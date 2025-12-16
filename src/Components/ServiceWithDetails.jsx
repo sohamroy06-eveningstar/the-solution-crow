@@ -12,6 +12,7 @@ import {
   Cpu,
   GitBranch,
   Megaphone,
+  X,
 } from "lucide-react";
 
 /* ---------------- DATA ---------------- */
@@ -43,7 +44,7 @@ const services = [
   {
     id: "mobile",
     title: "Mobile Application Development",
-    short: "Mobile application development",
+    short: "Mobile Application Development",
     icon: Smartphone,
     description: [
       "High-performance mobile apps for Android and iOS platforms.",
@@ -54,7 +55,7 @@ const services = [
   {
     id: "cloud",
     title: "Cloud Hosting",
-    short: "Cloud hosting",
+    short: "Cloud Hosting",
     icon: Cloud,
     description: [
       "Secure, scalable, and cost-effective cloud hosting solutions.",
@@ -65,7 +66,7 @@ const services = [
   {
     id: "migration",
     title: "Cloud Migration",
-    short: "Cloud migration",
+    short: "Cloud Migration",
     icon: ArrowRightLeft,
     description: [
       "Seamless migration of applications and data to the cloud.",
@@ -87,7 +88,7 @@ const services = [
   {
     id: "data",
     title: "Data Analysis",
-    short: "Data analysis",
+    short: "Data Analysis",
     icon: BarChart,
     description: [
       "Turn raw data into actionable insights.",
@@ -98,7 +99,7 @@ const services = [
   {
     id: "consulting",
     title: "Software Consultancy",
-    short: "Software consultancy",
+    short: "Software Consultancy",
     icon: Cpu,
     description: [
       "Expert guidance for architecture, scalability, and tech decisions.",
@@ -108,7 +109,7 @@ const services = [
   {
     id: "devops",
     title: "Devops Services",
-    short: "Devops services",
+    short: "Devops Services",
     icon: GitBranch,
     description: [
       "CI/CD pipelines, automation, and infrastructure optimization.",
@@ -116,30 +117,49 @@ const services = [
     cta: "Optimize DevOps",
   },
   {
-  id: "digital-marketing",
-  title: "Digital Marketing",
-  short: "Digital marketing",
-  icon: Megaphone,
-  description: [
-    "Result-driven digital marketing strategies focused on growth, visibility, and conversions.",
-    "We help brands reach the right audience through SEO, paid ads, and content marketing.",
-    "Every campaign is data-backed, performance-tracked, and ROI focused.",
-  ],
-  cta: "Grow Your Brand",
-},
-
+    id: "digital-marketing",
+    title: "Digital Marketing",
+    short: "Digital Marketing",
+    icon: Megaphone,
+    description: [
+      "Result-driven digital marketing strategies focused on growth, visibility, and conversions.",
+      "SEO, paid ads, content marketing, and performance tracking.",
+      "ROI-focused campaigns backed by analytics.",
+    ],
+    cta: "Grow Your Brand",
+  },
 ];
 
 /* ---------------- COMPONENT ---------------- */
 
 export default function ServicesWithDetails() {
   const [active, setActive] = useState(services[0]);
+  const [mobilePopup, setMobilePopup] = useState(null);
+  const [animating, setAnimating] = useState(false);
+
+  const isMobile =
+    typeof window !== "undefined" && window.innerWidth < 768;
+
+  const handleChange = (service) => {
+    if (isMobile) {
+      setMobilePopup(service);
+      return;
+    }
+
+    if (service.id === active.id) return;
+
+    setAnimating(true);
+    setTimeout(() => {
+      setActive(service);
+      setAnimating(false);
+    }, 200);
+  };
 
   return (
     <section className="py-24 px-6">
       <div className="max-w-7xl mx-auto">
 
-        {/* Heading */}
+        {/* HEADING */}
         <div className="flex justify-center mb-6">
           <span className="bg-[#940200] px-6 py-2 rounded-full font-semibold">
             Transform Your Idea into Reality
@@ -154,92 +174,86 @@ export default function ServicesWithDetails() {
           </span>
         </h2>
 
-        {/* ---------- SERVICES GRID ---------- */}
-        <div className="flex flex-col gap-6 mb-24">
-
-          <div className="flex justify-center gap-6 flex-wrap">
-            {services.slice(0, 3).map((service) => (
-              <ServiceCard
-                key={service.id}
-                service={service}
-                active={active.id === service.id}
-                onClick={() => setActive(service)}
-              />
-            ))}
-          </div>
-
-          <div className="flex justify-center gap-6 flex-wrap">
-            {services.slice(3, 7).map((service) => (
-              <ServiceCard
-                key={service.id}
-                service={service}
-                active={active.id === service.id}
-                onClick={() => setActive(service)}
-              />
-            ))}
-          </div>
-
-          <div className="flex justify-center gap-6 flex-wrap">
-            {services.slice(7).map((service) => (
-              <ServiceCard
-                key={service.id}
-                service={service}
-                active={active.id === service.id}
-                onClick={() => setActive(service)}
-              />
-            ))}
-          </div>
+        {/* SERVICE BUTTONS */}
+        <div className="flex flex-wrap justify-center gap-6 mb-24">
+          {services.map((service) => (
+            <ServiceCard
+              key={service.id}
+              service={service}
+              active={active.id === service.id}
+              onClick={() => handleChange(service)}
+            />
+          ))}
         </div>
 
-        {/* ---------- DYNAMIC DETAILS (IMAGE, NO OPACITY) ---------- */}
-        <section
-          className="relative py-24 md:py-32 bg-black overflow-hidden"
-          aria-labelledby="service-title"
-        >
-          {/* BACKGROUND IMAGE — FULL STRENGTH */}
+        {/* DESKTOP DETAILS (UNCHANGED) */}
+        <div className="hidden md:block relative py-24 overflow-hidden">
           <div
             className="absolute inset-0 bg-no-repeat bg-left bg-contain"
-            style={{
-              backgroundImage: "url('/crow-bg.png')",
-              backgroundPosition: "left center",
-            }}
+            style={{ backgroundImage: "url('/crow-bg.png')" }}
           />
 
-          {/* CONTENT */}
-          <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
-
-            {/* LEFT SPACE FOR IMAGE */}
+          <div className="relative z-10 grid grid-cols-2 gap-12 items-center">
             <div />
-
-            {/* RIGHT CONTENT */}
-            <div className="max-w-xl text-center md:text-left">
-              <h2
-                id="service-title"
-                className="text-3xl md:text-5xl font-bold mb-6"
-              >
-                {active.title}
-              </h2>
-
-              <div className="space-y-4 text-white text-sm md:text-base">
-                {active.description.map((text, i) => (
-                  <p key={i}>{text}</p>
+            <div
+              className={`max-w-xl transition-all duration-300 ${
+                animating ? "opacity-0 translate-x-6" : "opacity-100 translate-x-0"
+              }`}
+            >
+              <h2 className="text-5xl font-bold mb-6">{active.title}</h2>
+              <div className="space-y-4">
+                {active.description.map((d, i) => (
+                  <p key={i}>{d}</p>
                 ))}
               </div>
 
-              {/* CTA + RATING (RIGHT ALIGNED) */}
-              <div className="mt-8 flex flex-col sm:flex-row items-end sm:items-center gap-4 sm:gap-6 justify-end">
+              <div className="mt-8 flex items-center gap-6 justify-end">
                 <button className="bg-[#940200] px-6 py-3 rounded font-semibold">
                   {active.cta}
                 </button>
-
-                <span className="text-[#940200] font-bold">
-                  ★ 4.8
-                </span>
+                <span className="text-[#940200] font-bold">★ 4.8</span>
               </div>
             </div>
-
           </div>
-        </section>
+        </div>
+
+        {/* MOBILE POPUP */}
+        {mobilePopup && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4 md:hidden">
+            <div className="relative w-full max-w-md rounded-2xl overflow-hidden border border-white/10">
+
+              {/* SAME BACKGROUND IMAGE */}
+              <div
+                className="absolute inset-0 bg-no-repeat bg-center bg-contain"
+                style={{ backgroundImage: "url('/crow-bg.png')" }}
+              />
+              <div className="absolute inset-0 bg-black/85" />
+
+              <div className="relative z-10 p-6">
+                <button
+                  onClick={() => setMobilePopup(null)}
+                  className="absolute right-4 top-4 text-white/70 hover:text-white"
+                >
+                  <X />
+                </button>
+
+                <h3 className="text-2xl font-bold mb-4">
+                  {mobilePopup.title}
+                </h3>
+
+                <div className="space-y-3 text-sm text-white">
+                  {mobilePopup.description.map((d, i) => (
+                    <p key={i}>{d}</p>
+                  ))}
+                </div>
+
+                <button className="mt-6 w-full bg-[#940200] py-3 rounded font-semibold">
+                  {mobilePopup.cta}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
 
       </div>
     </section>
@@ -256,8 +270,7 @@ function ServiceCard({ service, active, onClick }) {
       onClick={onClick}
       className={`
         flex items-center gap-4 px-6 py-4 w-[280px]
-        rounded-xl border text-left
-        transition-all duration-300
+        rounded-xl border text-left transition-all duration-300
         ${
           active
             ? "bg-white/10 border-white/20 shadow-[0_0_30px_rgba(225,6,0,0.25)]"

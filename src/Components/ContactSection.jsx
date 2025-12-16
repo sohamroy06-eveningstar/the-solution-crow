@@ -45,34 +45,12 @@ export default function ContactSection() {
                 faster than you expect.
               </p>
 
-              {/* IMAGE PLACEHOLDER */}
-              <div className="h-[260px] bg-black rounded-lg flex items-center justify-center text-white/20">
-                Image / Illustration
-              </div>
             </div>
 
             {/* RIGHT CONTENT */}
             <div className="space-y-8">
 
-              {/* SERVICE */}
-              <div>
-                <label className="block text-sm text-white/70 mb-1">
-                  Service you are interested in
-                </label>
-                <select
-                  name="service"
-                  className="w-full bg-black border border-white/10 rounded-md px-4 py-3 text-white focus:outline-none focus:border-[#7c3aed]"
-                >
-                  <option value="">
-                    Select the service you want
-                  </option>
-                  <option>Website Development</option>
-                  <option>Web App Development</option>
-                  <option>Mobile App Development</option>
-                  <option>AI / ML Solutions</option>
-                  <option>Cloud & DevOps</option>
-                </select>
-              </div>
+            
 
               {/* CONTACT INFO */}
               <div className="pt-6 border-t border-white/10">

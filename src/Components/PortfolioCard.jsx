@@ -49,25 +49,18 @@ export default function PortfolioCard({ project }) {
           ))}
         </div>
 
-        {/* actions */}
-        <div className="flex gap-5 text-sm">
-          <Link
-            href={`/portfolio/${project.id}`}
-            className="font-medium text-[#ff6b6b] hover:underline"
-          >
-            View Details →
-          </Link>
+     {/* actions */}
+<div className="flex gap-5 text-sm">
+  {project.is_details_present && (
+    <Link
+      href={`/portfolio/${project.id}`}
+      className="font-medium text-[#ff6b6b] hover:underline"
+    >
+      View Details →
+    </Link>
+  )}
+</div>
 
-          {project.yt_url?.length > 0 && (
-            <a
-              href={project.yt_url[0]}
-              target="_blank"
-              className="text-gray-400 hover:text-white transition"
-            >
-              Watch Demo
-            </a>
-          )}
-        </div>
       </div>
     </div>
   );

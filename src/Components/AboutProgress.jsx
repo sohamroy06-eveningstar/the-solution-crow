@@ -1,17 +1,17 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowDown } from "lucide-react";
 
 export default function AboutProcess() {
   return (
     <section
-      className="py-28 px-6 bg-black"
+      className="pt-16 pb-20 md:py-28 px-6 bg-black"
       aria-labelledby="process-title"
     >
       <div className="max-w-7xl mx-auto">
 
         {/* HEADING */}
-        <header className="text-center mb-24">
+        <header className="text-center mb-12 md:mb-24">
           <h2
             id="process-title"
             className="text-3xl md:text-4xl font-semibold text-white mb-4"
@@ -25,54 +25,65 @@ export default function AboutProcess() {
 
           <p className="text-white/60 max-w-3xl mx-auto text-sm md:text-base">
             Every project follows a strategy that’s as precise as a crow’s
-            flight path — smart, focused, and flawless. Here’s how we bring
-            your idea to life.
+            flight path — smart, focused, and flawless.
           </p>
         </header>
 
         {/* TOP ROW */}
-        <div className="relative grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
+        <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-12 md:mb-24">
 
-          {/* SMALL ARROWS BETWEEN CARDS */}
-          <ArrowRight className="hidden md:block absolute top-1/2 left-[33%] -translate-y-1/2 w-4 h-4 text-white/40" />
-          <ArrowRight className="hidden md:block absolute top-1/2 left-[66%] -translate-y-1/2 w-4 h-4 text-white/40" />
+          {/* DESKTOP ARROWS */}
+          <ArrowRight className="hidden md:block absolute top-1/2 left-[33%] -translate-y-1/2 w-4 h-4 text-white/60" />
+          <ArrowRight className="hidden md:block absolute top-1/2 left-[66%] -translate-y-1/2 w-4 h-4 text-white/60" />
 
           <ProcessCard
             observation
             title="OBSERVATION"
             subtitle="Understanding the Terrain"
-            text="We begin by deeply observing your goals, market, and audience — identifying patterns others miss. Like a crow, we study every angle before moving."
+            text="We begin by deeply observing your goals, market, and audience — identifying patterns others miss."
           />
+
+          {/* MOBILE ARROW */}
+          <ArrowDown className="md:hidden mx-auto w-4 h-4 text-white/60" />
 
           <ProcessCard
             title="STRATEGY"
             subtitle="Plotting the Perfect Path"
-            text="Our team crafts a detailed roadmap defining purpose, timeline, and technology. Every decision is guided by precision and efficiency."
+            text="Our team crafts a detailed roadmap defining purpose, timeline, and technology."
           />
+
+          {/* MOBILE ARROW */}
+          <ArrowDown className="md:hidden mx-auto w-4 h-4 text-white/60" />
 
           <ProcessCard
             title="DESIGN"
             subtitle="Crafting the Vision"
-            text="We transform ideas into immersive, user-focused designs. Every pixel and interaction is crafted to be memorable and meaningful."
+            text="We transform ideas into immersive, user-focused designs."
           />
         </div>
 
         {/* BOTTOM ROW */}
-        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
 
-          {/* SMALL ARROW BETWEEN BOTTOM CARDS */}
-          <ArrowRight className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
+          {/* DESKTOP ARROW */}
+          <ArrowRight className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 text-white/60" />
+
+          {/* MOBILE ARROW */}
+          <ArrowDown className="md:hidden mx-auto w-4 h-4 text-white/60" />
 
           <ProcessCard
             title="DEVELOPMENT"
             subtitle="Bringing Ideas to Life"
-            text="With clean code and smart engineering, we build scalable digital solutions optimized for performance and future growth."
+            text="With clean code and smart engineering, we build scalable digital solutions optimized for performance."
           />
+
+          {/* MOBILE ARROW */}
+          <ArrowDown className="md:hidden mx-auto w-4 h-4 text-white/60" />
 
           <ProcessCard
             title="TESTING & LAUNCH"
             subtitle="Precision in Every Pixel"
-            text="Before launch, we test everything thoroughly. Once perfected, your product takes flight across platforms and devices."
+            text="Before launch, we test everything thoroughly. Once perfected, your product takes flight."
           />
         </div>
 
@@ -87,8 +98,13 @@ function ProcessCard({ title, subtitle, text, observation }) {
   return (
     <article
       className={`
-        relative p-8 text-center
-        rounded-2xl border
+        relative
+        aspect-square                /* ✅ PERFECT SQUARE */
+        p-8
+        flex flex-col justify-center /* ✅ CENTER CONTENT */
+        text-center
+        rounded-2xl
+        border
         overflow-hidden
         ${
           observation
@@ -97,29 +113,24 @@ function ProcessCard({ title, subtitle, text, observation }) {
         }
       `}
     >
-      {/* BACKGROUND IMAGE — ONLY OBSERVATION */}
       {observation && (
-        <div
-          className="absolute inset-0 rounded-2xl"
-          style={{
-            backgroundImage: "url('/observation-bg.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
-      )}
-
-      {/* DARK OVERLAY — ONLY OBSERVATION */}
-      {observation && (
-        <div className="absolute inset-0 bg-black/80 rounded-2xl" />
+        <>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: "url('/observation-bg.jpg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+          <div className="absolute inset-0 bg-black/80" />
+        </>
       )}
 
       {/* GLOW */}
       <div
         className="absolute inset-0 rounded-2xl pointer-events-none"
-        style={{
-          boxShadow: "0 0 40px rgba(124,58,237,0.35)",
-        }}
+        style={{ boxShadow: "0 0 40px rgba(124,58,237,0.35)" }}
       />
 
       {/* CONTENT */}
@@ -128,13 +139,9 @@ function ProcessCard({ title, subtitle, text, observation }) {
           {title}
         </h3>
 
-        <p className="text-white mb-4">
-          {subtitle}
-        </p>
+        <p className="text-white mb-4">{subtitle}</p>
 
-        <p className="text-white leading-relaxed">
-          {text}
-        </p>
+        <p className="text-white leading-relaxed">{text}</p>
       </div>
     </article>
   );

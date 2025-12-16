@@ -409,7 +409,8 @@ export const projects = [
         title: "ML Product Recommendation",
         description: "AI-powered recommendation system for hospitals with 82% accuracy.",
         technologies: ["Pandas", "NumPy", "scikit-learn", "FastAPI", "AWS Lambda"],
-        highlights: ["82% accuracy", "Serverless deployment", "Protected API"]
+        highlights: ["82% accuracy", "Serverless deployment", "Protected API"],
+        
     },
     {
         id: 6,

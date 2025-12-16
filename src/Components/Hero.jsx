@@ -2,50 +2,57 @@ export default function Hero() {
   return (
     <section
       className="
-        relative min-h-[90vh]
-        flex items-center
+        relative
         bg-black overflow-hidden
+        md:min-h-[90vh]   /* ✅ desktop only */
       "
       aria-labelledby="hero-title"
     >
-      {/* BACKGROUND IMAGE (NO OPACITY) */}
+      {/* BACKGROUND IMAGE */}
       <div
         className="absolute inset-0 bg-no-repeat bg-right"
         style={{
           backgroundImage: "url('/crow-hero.png')",
-          backgroundSize: "95%",
+          backgroundSize: "105%",
           backgroundPosition: "right center",
         }}
       />
 
       {/* CONTENT */}
-      <header className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-        <div className="max-w-xl text-left">
-          <p className="italic text-5xl mb-2 ">
-            Like a{" "}
-            <span className="bg-[#940200] px-2 py-1 rounded font-semibold not-italic">
-              Crow
-            </span>
-          </p>
+      <header className="relative z-10 max-w-7xl mx-auto px-6">
+        <div
+          className="
+            max-w-xl
+            pt-6 pb-8        /* ✅ tight mobile spacing */
+            md:pt-0 md:pb-0
+            md:flex md:items-center md:min-h-[90vh]
+          "
+        >
+          <div>
+            <p className="italic text-3xl md:text-5xl mb-2">
+              Like a{" "}
+              <span className="bg-[#940200] px-2 py-1 rounded font-semibold not-italic">
+                Crow
+              </span>
+            </p>
 
-          {/* SINGLE H1 (SEO SAFE) */}
-          <h1
-            id="hero-title"
-            className="text-4xl md:text-3xl font-bold mb-4"
-          >
-            We Never Miss the Details.
-          </h1>
+            <h1
+              id="hero-title"
+              className="text-3xl md:text-4xl font-bold mb-4"
+            >
+              We Never Miss the Details.
+            </h1>
 
-          {/* DESCRIPTION */}
-          <p className="text-white mb-6">
-            Solution Crow builds high-performance websites, web applications,
-            cloud solutions, and AI-powered products that are scalable,
-            secure, and SEO-optimized for business growth.
-          </p>
+            <p className="text-white mb-6">
+              Solution Crow builds high-performance websites, web applications,
+              cloud solutions, and AI-powered products that are scalable,
+              secure, and SEO-optimized for business growth.
+            </p>
 
-          <button className="bg-[var(--color-primary)] px-6 py-3 rounded font-semibold">
-            Explore Now
-          </button>
+            <button className="bg-[var(--color-primary)] px-6 py-3 rounded font-semibold">
+              Explore Now
+            </button>
+          </div>
         </div>
       </header>
     </section>
