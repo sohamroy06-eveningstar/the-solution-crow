@@ -135,7 +135,6 @@ const services = [
 export default function ServicesWithDetails() {
   const [active, setActive] = useState(services[0]);
   const [mobilePopup, setMobilePopup] = useState(null);
-  const [animating, setAnimating] = useState(false);
 
   const isMobile =
     typeof window !== "undefined" && window.innerWidth < 768;
@@ -145,14 +144,8 @@ export default function ServicesWithDetails() {
       setMobilePopup(service);
       return;
     }
-
     if (service.id === active.id) return;
-
-    setAnimating(true);
-    setTimeout(() => {
-      setActive(service);
-      setAnimating(false);
-    }, 200);
+    setActive(service);
   };
 
   return (
@@ -186,21 +179,20 @@ export default function ServicesWithDetails() {
           ))}
         </div>
 
-        {/* DESKTOP DETAILS (UNCHANGED) */}
-        <div className="hidden md:block relative py-24 overflow-hidden">
+        {/* DESKTOP DETAILS */}
+        <div className="hidden md:block relative overflow-hidden min-h-[520px]">
+
+          {/* 🔒 LOCKED BACKGROUND — NEVER MOVES */}
           <div
-            className="absolute inset-0 bg-no-repeat bg-left bg-contain"
+            className="absolute inset-0 bg-no-repeat bg-top bg-contain pointer-events-none"
             style={{ backgroundImage: "url('/crow-bg.png')" }}
           />
 
-          <div className="relative z-10 grid grid-cols-2 gap-12 items-center">
+          <div className="relative z-10 grid grid-cols-2 gap-12 items-start pt-24">
             <div />
-            <div
-              className={`max-w-xl transition-all duration-300 ${
-                animating ? "opacity-0 translate-x-6" : "opacity-100 translate-x-0"
-              }`}
-            >
+            <div className="max-w-xl">
               <h2 className="text-5xl font-bold mb-6">{active.title}</h2>
+
               <div className="space-y-4">
                 {active.description.map((d, i) => (
                   <p key={i}>{d}</p>
@@ -217,12 +209,11 @@ export default function ServicesWithDetails() {
           </div>
         </div>
 
-        {/* MOBILE POPUP */}
+        {/* MOBILE POPUP — UNCHANGED */}
         {mobilePopup && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4 md:hidden">
             <div className="relative w-full max-w-md rounded-2xl overflow-hidden border border-white/10">
 
-              {/* SAME BACKGROUND IMAGE */}
               <div
                 className="absolute inset-0 bg-no-repeat bg-center bg-contain"
                 style={{ backgroundImage: "url('/crow-bg.png')" }}
