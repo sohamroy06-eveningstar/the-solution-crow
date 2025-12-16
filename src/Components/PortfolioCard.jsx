@@ -4,76 +4,70 @@ export default function PortfolioCard({ project }) {
   return (
     <div
       className="
-        group relative
-        rounded-xl
-        border border-[#940200]/40
-        p-6
-        bg-black
-        transition-all duration-300 ease-out
+        group
+        relative
+        rounded-2xl
+        bg-gradient-to-br from-[#0c0c0c] via-black to-black
+        border border-[#940200]/30
+        p-7
+        transition-all duration-300
         hover:-translate-y-2
         hover:border-[#940200]
-        hover:from-[#940200]/40
-       
-        hover:shadow-[0_0_45px_rgba(148,2,0,0.65)]
+        hover:shadow-[0_0_60px_rgba(148,2,0,0.45)]
       "
     >
-      {/* SOFT RED AMBIENT GLOW (always visible) */}
-      <div
-        className="
-          absolute inset-0 rounded-xl
-          bg-[#940200]/20
-          blur-xl
-          opacity-60
-          -z-10
-        "
-      />
+      
+      {/* glow overlay */}
+      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition pointer-events-none bg-gradient-to-br from-[#940200]/10 via-transparent to-transparent" />
 
-      <h3 className="text-xl font-semibold text-white">
-        {project.title}
-      </h3>
+      {/* content */}
+      <div className="relative z-10">
+        <h3 className="text-lg font-semibold text-white mb-2">
+          {project.title}
+        </h3>
 
-      <p className="text-gray-200 mt-2">
-        {project.description}
-      </p>
+        <p className="text-sm text-gray-400 leading-relaxed mb-5">
+          {project.description}
+        </p>
 
-      {/* TECHNOLOGIES */}
-      <div className="flex flex-wrap gap-2 mt-4">
-        {project.technologies?.map((tech, i) => (
-          <span
-            key={i}
-            className="
-              text-xs px-3 py-1 rounded-full
-              bg-black/40
-              border border-[#940200]/40
-              text-white/90
-              transition-all
-              group-hover:bg-[#940200]/30
-              group-hover:border-[#940200]
-            "
+        {/* tech */}
+        <div className="flex flex-wrap gap-2 mb-6">
+          {project.technologies?.map((tech, i) => (
+            <span
+              key={i}
+              className="
+                text-[11px]
+                px-3 py-1
+                rounded-full
+                border border-[#940200]/40
+                text-[#ffb3b3]
+                bg-[#940200]/10
+              "
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        {/* actions */}
+        <div className="flex gap-5 text-sm">
+          <Link
+            href={`/portfolio/${project.id}`}
+            className="font-medium text-[#ff6b6b] hover:underline"
           >
-            {tech}
-          </span>
-        ))}
-      </div>
+            View Details →
+          </Link>
 
-      {/* LINKS */}
-      <div className="mt-4 flex gap-4 text-sm">
-        <Link
-          href={`/portfolio/${project.id}`}
-          className="text-white font-medium hover:underline"
-        >
-          View Details →
-        </Link>
-
-        {project.yt_url?.length > 0 && (
-          <a
-            href={project.yt_url[0]}
-            target="_blank"
-            className="text-gray-300 hover:text-white hover:underline"
-          >
-            Watch Demo
-          </a>
-        )}
+          {project.yt_url?.length > 0 && (
+            <a
+              href={project.yt_url[0]}
+              target="_blank"
+              className="text-gray-400 hover:text-white transition"
+            >
+              Watch Demo
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );

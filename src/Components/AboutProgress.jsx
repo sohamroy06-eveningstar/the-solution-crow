@@ -1,3 +1,7 @@
+"use client";
+
+import { ArrowRight } from "lucide-react";
+
 export default function AboutProcess() {
   return (
     <section
@@ -12,7 +16,7 @@ export default function AboutProcess() {
             id="process-title"
             className="text-3xl md:text-4xl font-semibold text-white mb-4"
           >
-            The Crow’s Process — From {" "}
+            The Crow’s Process — From{" "}
             <span className="relative inline-block">
               Vision to Execution
               <span className="absolute left-0 -bottom-2 w-full h-[2px] bg-[#940200]" />
@@ -27,7 +31,12 @@ export default function AboutProcess() {
         </header>
 
         {/* TOP ROW */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
+        <div className="relative grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
+
+          {/* SMALL ARROWS BETWEEN CARDS */}
+          <ArrowRight className="hidden md:block absolute top-1/2 left-[33%] -translate-y-1/2 w-4 h-4 text-white/40" />
+          <ArrowRight className="hidden md:block absolute top-1/2 left-[66%] -translate-y-1/2 w-4 h-4 text-white/40" />
+
           <ProcessCard
             observation
             title="OBSERVATION"
@@ -49,7 +58,11 @@ export default function AboutProcess() {
         </div>
 
         {/* BOTTOM ROW */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+
+          {/* SMALL ARROW BETWEEN BOTTOM CARDS */}
+          <ArrowRight className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
+
           <ProcessCard
             title="DEVELOPMENT"
             subtitle="Bringing Ideas to Life"
@@ -101,7 +114,7 @@ function ProcessCard({ title, subtitle, text, observation }) {
         <div className="absolute inset-0 bg-black/80 rounded-2xl" />
       )}
 
-      {/* PURPLE GLOW */}
+      {/* GLOW */}
       <div
         className="absolute inset-0 rounded-2xl pointer-events-none"
         style={{
@@ -115,11 +128,11 @@ function ProcessCard({ title, subtitle, text, observation }) {
           {title}
         </h3>
 
-        <p className=" text-white mb-4">
+        <p className="text-white mb-4">
           {subtitle}
         </p>
 
-        <p className=" text-white leading-relaxed">
+        <p className="text-white leading-relaxed">
           {text}
         </p>
       </div>

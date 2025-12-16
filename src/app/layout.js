@@ -1,4 +1,6 @@
+import Navbar from "@/Components/Navbar";
 import "./globals.css";
+import Footer from "@/Components/Footer";
 
 export const metadata = {
   title: "Solution Crow | We Never Miss the Details",
@@ -23,8 +25,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+     <html lang="en">
+      <body className="bg-black text-white">
+        {/* HEADER */}
+        <Navbar/>
+
+        {/* PAGE CONTENT */}
+        <main className="pt-24 min-h-screen">
+          {children}
+        </main>
+
+        {/* FOOTER */}
+        <Footer/>
+      </body>
     </html>
   );
 }

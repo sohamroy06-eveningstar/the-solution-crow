@@ -26,7 +26,7 @@ export default function Home() {
   }}
 />
 
-     <Navbar/>
+     
      <Hero/>
      <Features/>
      <TechStack/>
@@ -34,7 +34,7 @@ export default function Home() {
     <ServicesWithDetails/>
     <AboutProcess/>
     <ContactSection/>
-    <Footer/>
+    
     </>
   );
 }

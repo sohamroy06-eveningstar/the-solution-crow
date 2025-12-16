@@ -1,6 +1,7 @@
 import { projects } from "@/data/constants";
 import { notFound } from "next/navigation";
 import ImageGallery from "@/Components/ImageGallery";
+import BackToPortfolio from "@/Components/BackToPortfolio";
 
 
 export default async function ProjectDetails({ params }) {
@@ -10,6 +11,10 @@ export default async function ProjectDetails({ params }) {
 
   return (
     <main className="max-w-5xl mx-auto px-6 py-16 space-y-10">
+
+      {/* back button */}
+
+      <BackToPortfolio/>
 
       <h1 className="text-4xl font-bold">{project.title}</h1>
       <p className="text-gray-400">{project.description}</p>
@@ -25,6 +30,7 @@ export default async function ProjectDetails({ params }) {
 
       {/* IMAGE GALLERY */}
       {project.overview && <ImageGallery overview={project.overview} />}
+      
 
       {/* YOUTUBE */}
       {project.yt_url?.map(url => (

@@ -1,3 +1,10 @@
+import {
+  Phone,
+  Mail,
+  MapPin,
+  MessageCircle,
+} from "lucide-react";
+
 export default function ContactSection() {
   return (
     <section
@@ -28,9 +35,9 @@ export default function ContactSection() {
             <div>
               <h3 className="text-5xl italic font-semibold text-white mb-2">
                 Let’s Build{" "}
-                <p className="text-[var(--color-primary)]">
+                <span className="text-[var(--color-primary)]">
                   Something Brilliant.
-                </p>
+                </span>
               </h3>
 
               <p className="text-white/60 mb-8">
@@ -38,56 +45,14 @@ export default function ContactSection() {
                 faster than you expect.
               </p>
 
-              {/* IMAGE PLACEHOLDER (OPTIONAL) */}
+              {/* IMAGE PLACEHOLDER */}
               <div className="h-[260px] bg-black rounded-lg flex items-center justify-center text-white/20">
                 Image / Illustration
               </div>
             </div>
 
-            {/* RIGHT FORM */}
-            <form
-              className="space-y-5"
-              aria-label="Contact form"
-            >
-              {/* NAME */}
-              <div>
-                <label className="block text-sm text-white/70 mb-1">
-                  Your Name<span className="text-[#940200]">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  placeholder="Enter your full name"
-                  className="w-full bg-black border border-white/10 rounded-md px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#7c3aed]"
-                />
-              </div>
-
-              {/* EMAIL */}
-              <div>
-                <label className="block text-sm text-white/70 mb-1">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Enter your business or personal email"
-                  className="w-full bg-black border border-white/10 rounded-md px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#7c3aed]"
-                />
-              </div>
-
-              {/* PHONE */}
-              <div>
-                <label className="block text-sm text-white/70 mb-1">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Enter your contact number (optional)"
-                  className="w-full bg-black border border-white/10 rounded-md px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#7c3aed]"
-                />
-              </div>
+            {/* RIGHT CONTENT */}
+            <div className="space-y-8">
 
               {/* SERVICE */}
               <div>
@@ -109,27 +74,38 @@ export default function ContactSection() {
                 </select>
               </div>
 
-              {/* MESSAGE */}
-              <div>
-                <label className="block text-sm text-white/70 mb-1">
-                  How can I help you?
-                </label>
-                <textarea
-                  name="message"
-                  rows="4"
-                  placeholder="Tell us what kind of support or solution you're looking for"
-                  className="w-full bg-black border border-white/10 rounded-md px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#7c3aed]"
-                />
+              {/* CONTACT INFO */}
+              <div className="pt-6 border-t border-white/10">
+                <h4 className="text-lg font-semibold text-white mb-4">
+                  Contact Us
+                </h4>
+
+                <ul className="space-y-4 text-white/70 text-sm">
+
+                  <li className="flex items-center gap-3">
+                    <Phone className="w-4 h-4 text-[#940200]" />
+                    <span>+91 86178 11488</span>
+                  </li>
+
+                  <li className="flex items-center gap-3">
+                    <Mail className="w-4 h-4 text-[#940200]" />
+                    <span>support@solutioncrow.com</span>
+                  </li>
+
+                  <li className="flex items-center gap-3">
+                    <MapPin className="w-4 h-4 text-[#940200]" />
+                    <span>Hazra Lane, Bankura, India</span>
+                  </li>
+
+                  <li className="flex items-center gap-3">
+                    <MessageCircle className="w-4 h-4 text-[#940200]" />
+                    <span>WhatsApp: +91 86178 11488</span>
+                  </li>
+
+                </ul>
               </div>
 
-              {/* SUBMIT */}
-              <button
-                type="submit"
-                className="mt-4 inline-flex items-center justify-center bg-[var(--color-primary)] hover:bg-red-700 transition px-6 py-3 rounded-md font-semibold text-white"
-              >
-                Send Message
-              </button>
-            </form>
+            </div>
 
           </div>
         </div>
