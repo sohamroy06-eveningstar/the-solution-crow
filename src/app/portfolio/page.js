@@ -7,11 +7,13 @@ export default function PortfolioPage() {
     <main className="bg-black min-h-screen">
 
       {/* ===== PAGE HEADER ===== */}
-      <section className="max-w-7xl mx-auto px-6 pt-24 pb-16">
-
-        
-      
-
+      <section
+        className="
+          max-w-7xl mx-auto px-6
+          pt-0 pb-16
+          -mt-[64px]   /* ✅ FIX: removes navbar gap (desktop + mobile) */
+        "
+      >
         {/* Title */}
         <h1 className="text-4xl md:text-5xl font-bold text-white text-left">
           Portfolio

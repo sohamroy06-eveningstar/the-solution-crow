@@ -1,14 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 
-
 export default function Footer() {
   return (
-    <footer className="bg-black border-t border-white/10 mt-32">
+    <footer className="bg-black border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-14">
 
         {/* TOP */}
-        <div className="grid md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-3 gap-10">
 
           {/* BRAND */}
           <div>
@@ -19,7 +18,7 @@ export default function Footer() {
                 width={40}
                 height={40}
               />
-              <span className="text-xl font-bold">Solution Crow</span>
+              <span className="text-sm font-bold">Solution Crow</span>
             </div>
 
             <p className="text-white/60 text-sm leading-relaxed">
@@ -51,9 +50,6 @@ export default function Footer() {
               <li>Digital Marketing</li>
             </ul>
           </div>
-
-          
-        
 
         </div>
 

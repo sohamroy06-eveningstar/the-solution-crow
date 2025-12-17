@@ -4,17 +4,21 @@ export default function Hero() {
       className="
         relative
         bg-black overflow-hidden
-        md:min-h-[90vh]   /* ✅ desktop only */
+        md:min-h-[90vh]
+        -mt-[64px]        /* ✅ FIX: removes navbar gap (mobile + desktop) */
       "
       aria-labelledby="hero-title"
     >
       {/* BACKGROUND IMAGE */}
       <div
-        className="absolute inset-0 bg-no-repeat bg-right"
+        className="
+          absolute inset-0 bg-no-repeat bg-right
+          top-0 md:top-[-100px]
+        "
         style={{
           backgroundImage: "url('/crow-hero.png')",
           backgroundSize: "105%",
-          backgroundPosition: "right center",
+          backgroundPosition: "center",
         }}
       />
 
@@ -23,9 +27,9 @@ export default function Hero() {
         <div
           className="
             max-w-xl
-            pt-6 pb-8        /* ✅ tight mobile spacing */
+            pt-0 pb-8
             md:pt-0 md:pb-0
-            md:flex md:items-center md:min-h-[90vh]
+            md:min-h-[90vh]
           "
         >
           <div>

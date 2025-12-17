@@ -5,7 +5,7 @@ import { ArrowRight, ArrowDown } from "lucide-react";
 export default function AboutProcess() {
   return (
     <section
-      className="pt-16 pb-20 md:py-28 px-6 bg-black"
+      className="pt-0 pb-20 md:pt-0 md:pb-28 px-6 bg-black"
       aria-labelledby="process-title"
     >
       <div className="max-w-7xl mx-auto">
@@ -30,55 +30,88 @@ export default function AboutProcess() {
         </header>
 
         {/* TOP ROW */}
-        <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-12 md:mb-24">
+        <div className="mb-12 md:mb-24">
 
-          {/* DESKTOP ARROWS */}
-          <ArrowRight className="hidden md:block absolute top-1/2 left-[33%] -translate-y-1/2 w-4 h-4 text-white/60" />
-          <ArrowRight className="hidden md:block absolute top-1/2 left-[66%] -translate-y-1/2 w-4 h-4 text-white/60" />
+          {/* DESKTOP GRID */}
+          <div className="hidden md:grid grid-cols-[320px_60px_320px_60px_320px] justify-center items-center">
 
-          <ProcessCard
-            observation
-            title="OBSERVATION"
-            subtitle="Understanding the Terrain"
-            text="We begin by deeply observing your goals, market, and audience — identifying patterns others miss."
-          />
+            <ProcessCard
+              observation
+              title="OBSERVATION"
+              subtitle="Understanding the Terrain"
+              text="We begin by deeply observing your goals, market, and audience — identifying patterns others miss."
+            />
 
-          {/* MOBILE ARROW */}
-          <ArrowDown className="md:hidden mx-auto w-4 h-4 text-white/60" />
+            <ArrowRight className="mx-auto text-white w-4 h-4" />
 
-          <ProcessCard
-            title="STRATEGY"
-            subtitle="Plotting the Perfect Path"
-            text="Our team crafts a detailed roadmap defining purpose, timeline, and technology."
-          />
+            <ProcessCard
+              title="STRATEGY"
+              subtitle="Plotting the Perfect Path"
+              text="Our team crafts a detailed roadmap defining purpose, timeline, and technology."
+            />
 
-          {/* MOBILE ARROW */}
-          <ArrowDown className="md:hidden mx-auto w-4 h-4 text-white/60" />
+            <ArrowRight className="mx-auto text-white w-4 h-4" />
 
-          <ProcessCard
-            title="DESIGN"
-            subtitle="Crafting the Vision"
-            text="We transform ideas into immersive, user-focused designs."
-          />
+            <ProcessCard
+              title="DESIGN"
+              subtitle="Crafting the Vision"
+              text="We transform ideas into immersive, user-focused designs."
+            />
+          </div>
+
+          {/* MOBILE STACK — FIXED */}
+          <div className="md:hidden grid grid-cols-1 gap-8 justify-items-center">
+            <ProcessCard
+              observation
+              title="OBSERVATION"
+              subtitle="Understanding the Terrain"
+              text="We begin by deeply observing your goals, market, and audience — identifying patterns others miss."
+            />
+
+            <ArrowDown className="mx-auto text-white w-4 h-4" />
+
+            <ProcessCard
+              title="STRATEGY"
+              subtitle="Plotting the Perfect Path"
+              text="Our team crafts a detailed roadmap defining purpose, timeline, and technology."
+            />
+
+            <ArrowDown className="mx-auto text-white w-4 h-4" />
+
+            <ProcessCard
+              title="DESIGN"
+              subtitle="Crafting the Vision"
+              text="We transform ideas into immersive, user-focused designs."
+            />
+          </div>
         </div>
 
         {/* BOTTOM ROW */}
-        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
-
-          {/* DESKTOP ARROW */}
-          <ArrowRight className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 text-white/60" />
-
-          {/* MOBILE ARROW */}
-          <ArrowDown className="md:hidden mx-auto w-4 h-4 text-white/60" />
-
+        <div className="hidden md:grid grid-cols-[320px_60px_320px] justify-center items-center">
           <ProcessCard
             title="DEVELOPMENT"
             subtitle="Bringing Ideas to Life"
             text="With clean code and smart engineering, we build scalable digital solutions optimized for performance."
           />
 
-          {/* MOBILE ARROW */}
-          <ArrowDown className="md:hidden mx-auto w-4 h-4 text-white/60" />
+          <ArrowRight className="mx-auto text-white w-4 h-4" />
+
+          <ProcessCard
+            title="TESTING & LAUNCH"
+            subtitle="Precision in Every Pixel"
+            text="Before launch, we test everything thoroughly. Once perfected, your product takes flight."
+          />
+        </div>
+
+        {/* MOBILE BOTTOM STACK — FIXED */}
+        <div className="md:hidden grid grid-cols-1 gap-8 mt-8 justify-items-center">
+          <ProcessCard
+            title="DEVELOPMENT"
+            subtitle="Bringing Ideas to Life"
+            text="With clean code and smart engineering, we build scalable digital solutions optimized for performance."
+          />
+
+          <ArrowDown className="mx-auto text-white w-4 h-4" />
 
           <ProcessCard
             title="TESTING & LAUNCH"
@@ -92,16 +125,17 @@ export default function AboutProcess() {
   );
 }
 
-/* ---------------- PROCESS CARD ---------------- */
+/* ---------------- CARD ---------------- */
 
 function ProcessCard({ title, subtitle, text, observation }) {
   return (
     <article
       className={`
         relative
-        aspect-square                /* ✅ PERFECT SQUARE */
+        aspect-square
+        w-[320px] h-[320px]
         p-8
-        flex flex-col justify-center /* ✅ CENTER CONTENT */
+        flex flex-col justify-center
         text-center
         rounded-2xl
         border
@@ -127,20 +161,16 @@ function ProcessCard({ title, subtitle, text, observation }) {
         </>
       )}
 
-      {/* GLOW */}
       <div
         className="absolute inset-0 rounded-2xl pointer-events-none"
         style={{ boxShadow: "0 0 40px rgba(124,58,237,0.35)" }}
       />
 
-      {/* CONTENT */}
       <div className="relative z-10">
         <h3 className="text-4xl font-semibold text-white mb-1">
           {title}
         </h3>
-
         <p className="text-white mb-4">{subtitle}</p>
-
         <p className="text-white leading-relaxed">{text}</p>
       </div>
     </article>

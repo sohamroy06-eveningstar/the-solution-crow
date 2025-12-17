@@ -8,7 +8,7 @@ import {
 export default function ContactSection() {
   return (
     <section
-      className="py-28 px-6 bg-black"
+      className="pt-0 pb-28 px-6 bg-black"
       aria-labelledby="contact-title"
     >
       <div className="max-w-7xl mx-auto">
@@ -44,13 +44,10 @@ export default function ContactSection() {
                 Drop a message — we’ll get back
                 faster than you expect.
               </p>
-
             </div>
 
             {/* RIGHT CONTENT */}
             <div className="space-y-8">
-
-            
 
               {/* CONTACT INFO */}
               <div className="pt-6 border-t border-white/10">
@@ -59,7 +56,6 @@ export default function ContactSection() {
                 </h4>
 
                 <ul className="space-y-4 text-white/70 text-sm">
-
                   <li className="flex items-center gap-3">
                     <Phone className="w-4 h-4 text-[#940200]" />
                     <span>+91 86178 11488</span>
@@ -79,7 +75,6 @@ export default function ContactSection() {
                     <MessageCircle className="w-4 h-4 text-[#940200]" />
                     <span>WhatsApp: +91 86178 11488</span>
                   </li>
-
                 </ul>
               </div>
 
