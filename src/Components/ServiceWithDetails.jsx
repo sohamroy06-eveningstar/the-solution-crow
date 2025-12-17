@@ -182,7 +182,6 @@ export default function ServicesWithDetails() {
         {/* DESKTOP DETAILS */}
         <div className="hidden md:block relative overflow-hidden min-h-[520px]">
 
-          {/* 🔒 LOCKED BACKGROUND — NEVER MOVES */}
           <div
             className="absolute inset-0 bg-no-repeat bg-top bg-contain pointer-events-none"
             style={{ backgroundImage: "url('/crow-bg.png')" }}
@@ -190,8 +189,12 @@ export default function ServicesWithDetails() {
 
           <div className="relative z-10 grid grid-cols-2 gap-12 items-start pt-24">
             <div />
-            <div className="max-w-xl">
-              <h2 className="text-5xl font-bold mb-6">{active.title}</h2>
+
+            {/* ✅ ONLY FIX: content aligned slightly right */}
+            <div className="max-w-xl translate-x-[24px]">
+              <h2 className="text-5xl font-bold mb-6">
+                {active.title}
+              </h2>
 
               <div className="space-y-4">
                 {active.description.map((d, i) => (

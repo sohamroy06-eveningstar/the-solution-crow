@@ -5,7 +5,7 @@ import { ArrowRight, ArrowDown } from "lucide-react";
 export default function AboutProcess() {
   return (
     <section
-      className="pt-0 pb-20 md:pt-0 md:pb-28 px-6 bg-black"
+      className="pt-0 pb-20 md:pb-28 px-6 bg-black"
       aria-labelledby="process-title"
     >
       <div className="max-w-7xl mx-auto">
@@ -29,65 +29,67 @@ export default function AboutProcess() {
           </p>
         </header>
 
-        {/* TOP ROW */}
-        <div className="mb-12 md:mb-24">
+        {/* ================= TOP ROW ================= */}
 
-          {/* DESKTOP GRID */}
-          <div className="hidden md:grid grid-cols-[320px_60px_320px_60px_320px] justify-center items-center">
+        {/* DESKTOP */}
+        <div className="hidden md:grid grid-cols-[320px_60px_320px_60px_320px] items-center justify-center mb-24">
+          <ProcessCard
+            observation
+            title="OBSERVATION"
+            subtitle="Understanding the Terrain"
+            text="We begin by deeply observing your goals, market, and audience — identifying patterns others miss."
+          />
 
-            <ProcessCard
-              observation
-              title="OBSERVATION"
-              subtitle="Understanding the Terrain"
-              text="We begin by deeply observing your goals, market, and audience — identifying patterns others miss."
-            />
+          <ArrowRight className="mx-auto text-white w-4 h-4" />
 
-            <ArrowRight className="mx-auto text-white w-4 h-4" />
+          <ProcessCard
+            title="STRATEGY"
+            subtitle="Plotting the Perfect Path"
+            text="Our team crafts a detailed roadmap defining purpose, timeline, and technology."
+          />
 
-            <ProcessCard
-              title="STRATEGY"
-              subtitle="Plotting the Perfect Path"
-              text="Our team crafts a detailed roadmap defining purpose, timeline, and technology."
-            />
+          <ArrowRight className="mx-auto text-white w-4 h-4" />
 
-            <ArrowRight className="mx-auto text-white w-4 h-4" />
-
-            <ProcessCard
-              title="DESIGN"
-              subtitle="Crafting the Vision"
-              text="We transform ideas into immersive, user-focused designs."
-            />
-          </div>
-
-          {/* MOBILE STACK — FIXED */}
-          <div className="md:hidden grid grid-cols-1 gap-8 justify-items-center">
-            <ProcessCard
-              observation
-              title="OBSERVATION"
-              subtitle="Understanding the Terrain"
-              text="We begin by deeply observing your goals, market, and audience — identifying patterns others miss."
-            />
-
-            <ArrowDown className="mx-auto text-white w-4 h-4" />
-
-            <ProcessCard
-              title="STRATEGY"
-              subtitle="Plotting the Perfect Path"
-              text="Our team crafts a detailed roadmap defining purpose, timeline, and technology."
-            />
-
-            <ArrowDown className="mx-auto text-white w-4 h-4" />
-
-            <ProcessCard
-              title="DESIGN"
-              subtitle="Crafting the Vision"
-              text="We transform ideas into immersive, user-focused designs."
-            />
-          </div>
+          <ProcessCard
+            title="DESIGN"
+            subtitle="Crafting the Vision"
+            text="We transform ideas into immersive, user-focused designs."
+          />
         </div>
 
-        {/* BOTTOM ROW */}
-        <div className="hidden md:grid grid-cols-[320px_60px_320px] justify-center items-center">
+        {/* MOBILE */}
+        <div className="md:hidden flex flex-col items-center gap-8 mb-12">
+          <ProcessCard
+            observation
+            title="OBSERVATION"
+            subtitle="Understanding the Terrain"
+            text="We begin by deeply observing your goals, market, and audience — identifying patterns others miss."
+          />
+
+          <ArrowDown className="text-white w-4 h-4" />
+
+          <ProcessCard
+            title="STRATEGY"
+            subtitle="Plotting the Perfect Path"
+            text="Our team crafts a detailed roadmap defining purpose, timeline, and technology."
+          />
+
+          <ArrowDown className="text-white w-4 h-4" />
+
+          <ProcessCard
+            title="DESIGN"
+            subtitle="Crafting the Vision"
+            text="We transform ideas into immersive, user-focused designs."
+          />
+
+          {/* ✅ MISSING ARROW — ADDED HERE */}
+          <ArrowDown className="text-white w-4 h-4" />
+        </div>
+
+        {/* ================= BOTTOM ROW ================= */}
+
+        {/* DESKTOP */}
+        <div className="hidden md:grid grid-cols-[320px_60px_320px] items-center justify-center">
           <ProcessCard
             title="DEVELOPMENT"
             subtitle="Bringing Ideas to Life"
@@ -103,15 +105,15 @@ export default function AboutProcess() {
           />
         </div>
 
-        {/* MOBILE BOTTOM STACK — FIXED */}
-        <div className="md:hidden grid grid-cols-1 gap-8 mt-8 justify-items-center">
+        {/* MOBILE */}
+        <div className="md:hidden flex flex-col items-center gap-8">
           <ProcessCard
             title="DEVELOPMENT"
             subtitle="Bringing Ideas to Life"
             text="With clean code and smart engineering, we build scalable digital solutions optimized for performance."
           />
 
-          <ArrowDown className="mx-auto text-white w-4 h-4" />
+          <ArrowDown className="text-white w-4 h-4" />
 
           <ProcessCard
             title="TESTING & LAUNCH"
@@ -125,7 +127,7 @@ export default function AboutProcess() {
   );
 }
 
-/* ---------------- CARD ---------------- */
+/* ================= CARD ================= */
 
 function ProcessCard({ title, subtitle, text, observation }) {
   return (
