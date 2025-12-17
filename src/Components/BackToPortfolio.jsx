@@ -5,7 +5,7 @@ import { ArrowLeft } from "lucide-react";
 
 export default function BackToPortfolio() {
   return (
-    <div className="mb-10">
+    <div className="mb-6">
       <Link
         href="/portfolio"
         className="

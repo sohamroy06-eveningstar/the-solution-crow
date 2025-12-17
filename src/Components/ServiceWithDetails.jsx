@@ -149,16 +149,18 @@ export default function ServicesWithDetails() {
   };
 
   return (
-    <section className="py-24 px-6">
+    // ✅ ONLY CHANGE: removed top padding
+    <section className="pt-0 pb-24 px-6">
       <div className="max-w-7xl mx-auto">
 
-        {/* HEADING */}
+        {/* HEADING PILL */}
         <div className="flex justify-center mb-6">
           <span className="bg-[#940200] px-6 py-2 rounded-full font-semibold">
             Transform Your Idea into Reality
           </span>
         </div>
 
+        {/* TITLE */}
         <h2 className="text-center text-3xl font-semibold mb-14">
           In-Demand{" "}
           <span className="relative inline-block">
@@ -181,7 +183,6 @@ export default function ServicesWithDetails() {
 
         {/* DESKTOP DETAILS */}
         <div className="hidden md:block relative overflow-hidden min-h-[520px]">
-
           <div
             className="absolute inset-0 bg-no-repeat bg-top bg-contain pointer-events-none"
             style={{ backgroundImage: "url('/crow-bg.png')" }}
@@ -189,12 +190,8 @@ export default function ServicesWithDetails() {
 
           <div className="relative z-10 grid grid-cols-2 gap-12 items-start pt-24">
             <div />
-
-            {/* ✅ ONLY FIX: content aligned slightly right */}
-            <div className="max-w-xl translate-x-[24px]">
-              <h2 className="text-5xl font-bold mb-6">
-                {active.title}
-              </h2>
+            <div className="max-w-xl">
+              <h2 className="text-5xl font-bold mb-6">{active.title}</h2>
 
               <div className="space-y-4">
                 {active.description.map((d, i) => (

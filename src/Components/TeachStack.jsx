@@ -42,7 +42,7 @@ const Row = ({ label, items }) => (
       <span aria-hidden="true">→</span>
     </div>
 
-    {/* PILLS WRAPPER (RESPONSIVE FIX) */}
+    {/* PILLS */}
     <div className="flex flex-wrap gap-3">
       {items.map(({ name, icon: Icon, color }, i) => (
         <div
@@ -64,7 +64,7 @@ const Row = ({ label, items }) => (
 export default function TechStack() {
   return (
     <section
-      className="py-24 px-6"
+      className="pt-0 pb-24 px-6"
       aria-labelledby="techstack-title"
     >
       <div className="max-w-7xl mx-auto">

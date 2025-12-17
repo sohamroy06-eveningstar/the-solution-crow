@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { MoreVertical, X } from "lucide-react";
+import { X } from "lucide-react";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -15,10 +15,13 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 w-full z-50 bg-black/80 backdrop-blur border-b-0 md:border-b border-white">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <div className="max-w-7xl mx-auto relative flex items-center px-6 py-4">
 
-        {/* LOGO */}
-        <Link href="/" className="flex items-center gap-3">
+        {/* LOGO — CENTERED ON MOBILE */}
+        <Link
+          href="/"
+          className="mx-auto md:mx-0 md:flex md:items-center"
+        >
           <Image
             src="/crow-logo.png"
             alt="Solution Crow Logo"
@@ -28,8 +31,25 @@ export default function Navbar() {
           />
         </Link>
 
+        {/* MOBILE MENU BUTTON — RIGHT SIDE */}
+        <button
+          onClick={() => setOpen(!open)}
+          className="md:hidden text-white absolute right-6"
+          aria-label="Toggle Menu"
+        >
+          {open ? (
+            <X size={22} />
+          ) : (
+            <div className="flex flex-col gap-[3px]">
+              <span className="w-5 h-[2px] bg-white" />
+              <span className="w-5 h-[2px] bg-white" />
+              <span className="w-5 h-[2px] bg-white" />
+            </div>
+          )}
+        </button>
+
         {/* DESKTOP NAV */}
-        <div className="hidden md:flex gap-6 font-semibold">
+        <div className="hidden md:flex gap-6 font-semibold ml-auto">
           <Link
             href="/"
             className={`px-4 py-1 rounded transition ${
@@ -52,18 +72,9 @@ export default function Navbar() {
             PORTFOLIO
           </Link>
         </div>
-
-        {/* MOBILE MENU BUTTON */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden text-white"
-          aria-label="Toggle Menu"
-        >
-          {open ? <X size={22} /> : <MoreVertical size={22} />}
-        </button>
       </div>
 
-      {/* ✅ MOBILE NAV (OVERLAY, DOES NOT PUSH CONTENT) */}
+      {/* MOBILE NAV — OVERLAY (UNCHANGED) */}
       {open && (
         <div
           className="
