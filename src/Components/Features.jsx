@@ -27,6 +27,8 @@ export default function Features() {
               text-center
               flex flex-col justify-center
               hover:scale-[1.02]
+              hover:border-[#940200]
+              hover:shadow-[0_0_60px_rgba(148,2,0,0.45)]
               transition
             "
           >

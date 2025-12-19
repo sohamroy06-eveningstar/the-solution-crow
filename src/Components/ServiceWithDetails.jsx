@@ -101,9 +101,7 @@ const services = [
     title: "Software Consultancy",
     short: "Software Consultancy",
     icon: Cpu,
-    description: [
-      "Expert guidance for architecture, scalability, and tech decisions.",
-    ],
+    description: ["Expert guidance for architecture, scalability, and tech decisions."],
     cta: "Consult Experts",
   },
   {
@@ -111,9 +109,7 @@ const services = [
     title: "Devops Services",
     short: "Devops Services",
     icon: GitBranch,
-    description: [
-      "CI/CD pipelines, automation, and infrastructure optimization.",
-    ],
+    description: ["CI/CD pipelines, automation, and infrastructure optimization."],
     cta: "Optimize DevOps",
   },
   {
@@ -149,18 +145,16 @@ export default function ServicesWithDetails() {
   };
 
   return (
-    // ✅ ONLY CHANGE: removed top padding
     <section className="pt-0 pb-24 px-6">
       <div className="max-w-7xl mx-auto">
 
-        {/* HEADING PILL */}
+        {/* HEADING */}
         <div className="flex justify-center mb-6">
           <span className="bg-[#940200] px-6 py-2 rounded-full font-semibold">
             Transform Your Idea into Reality
           </span>
         </div>
 
-        {/* TITLE */}
         <h2 className="text-center text-3xl font-semibold mb-14">
           In-Demand{" "}
           <span className="relative inline-block">
@@ -169,29 +163,38 @@ export default function ServicesWithDetails() {
           </span>
         </h2>
 
-        {/* SERVICE BUTTONS */}
-        <div className="flex flex-wrap justify-center gap-6 mb-24">
-          {services.map((service) => (
-            <ServiceCard
-              key={service.id}
-              service={service}
-              active={active.id === service.id}
-              onClick={() => handleChange(service)}
+        {/* ================= DESKTOP ================= */}
+        <div className="hidden md:grid grid-cols-[320px_1fr] gap-16">
+
+          {/* LEFT */}
+          <div className="flex flex-col gap-6">
+            {services.map((service) => (
+              <ServiceCard
+                key={service.id}
+                service={service}
+                active={active.id === service.id}
+                onClick={() => handleChange(service)}
+              />
+            ))}
+          </div>
+
+          {/* RIGHT */}
+          <div className="relative overflow-hidden min-h-[520px] flex items-center">
+
+            {/* BACKGROUND IMAGE — BIGGER */}
+            <div
+              className="absolute inset-0 bg-no-repeat bg-center pointer-events-none"
+              style={{
+                backgroundImage: "url('/crow-bg.png')",
+                backgroundSize: "120%",
+              }}
             />
-          ))}
-        </div>
 
-        {/* DESKTOP DETAILS */}
-        <div className="hidden md:block relative overflow-hidden min-h-[520px]">
-          <div
-            className="absolute inset-0 bg-no-repeat bg-top bg-contain pointer-events-none"
-            style={{ backgroundImage: "url('/crow-bg.png')" }}
-          />
-
-          <div className="relative z-10 grid grid-cols-2 gap-12 items-start pt-24">
-            <div />
-            <div className="max-w-xl">
-              <h2 className="text-5xl font-bold mb-6">{active.title}</h2>
+            {/* CONTENT — CENTERED */}
+            <div className="relative z-10 max-w-xl ml-auto pr-6">
+              <h2 className="text-5xl font-bold mb-6">
+                {active.title}
+              </h2>
 
               <div className="space-y-4">
                 {active.description.map((d, i) => (
@@ -209,11 +212,21 @@ export default function ServicesWithDetails() {
           </div>
         </div>
 
-        {/* MOBILE POPUP — UNCHANGED */}
+        {/* ================= MOBILE (UNCHANGED) ================= */}
+        <div className="md:hidden flex flex-wrap justify-center gap-6 mb-24">
+          {services.map((service) => (
+            <ServiceCard
+              key={service.id}
+              service={service}
+              active={active.id === service.id}
+              onClick={() => handleChange(service)}
+            />
+          ))}
+        </div>
+
         {mobilePopup && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4 md:hidden">
             <div className="relative w-full max-w-md rounded-2xl overflow-hidden border border-white/10">
-
               <div
                 className="absolute inset-0 bg-no-repeat bg-center bg-contain"
                 style={{ backgroundImage: "url('/crow-bg.png')" }}
