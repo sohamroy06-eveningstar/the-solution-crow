@@ -53,9 +53,9 @@ export default function ClientFeedbackSection() {
               Client Feedback
             </h2>
 
-            <p className="text-center text-xl text-white/80 mb-20">
+            <h5 className="text-center text-xl text-white/80 mb-20">
               Trusted by businesses that demand performance
-            </p>
+            </h5>
 
             {/* GRID — 3 COLUMNS DESKTOP */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -77,25 +77,25 @@ export default function ClientFeedbackSection() {
                     {project.projectName}
                   </h3>
 
-                  <p className="text-sm text-[#940200] mb-3">
+                  <h4 className="text-sm text-[#940200] mb-3">
                     {project.projectDetails}
-                  </p>
+                  </h4>
 
-                  <p className="text-sm text-white/70 mb-6">
+                  <h5 className="text-sm text-white/70 mb-6">
                     {project.projectDescription}
-                  </p>
+                  </h5>
 
                   {/* REVIEWS */}
                   <div className="space-y-6">
                     {project.reviews.map((review, i) => (
                       <div key={i}>
-                        <p className="text-sm text-white leading-relaxed mb-2">
+                        <h5 className="text-sm text-white leading-relaxed mb-2">
                           “{review.feedback}”
-                        </p>
+                        </h5>
 
-                        <p className="text-xs font-semibold text-[#940200] mb-3">
+                        <h5 className="text-xs font-semibold text-[#940200] mb-3">
                           — {review.clientName}
-                        </p>
+                        </h5>
 
                         {/* YOUTUBE VIDEO */}
                         {review.youtubeUrl && (

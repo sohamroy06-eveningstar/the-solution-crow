@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Instagram, Facebook, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -21,10 +22,37 @@ export default function Footer() {
               <span className="text-sm font-bold">Solution Crow</span>
             </div>
 
-            <p className="text-white/60 text-sm leading-relaxed">
+            <p className="text-white/60 text-sm leading-relaxed mb-4">
               We build high-performance websites, applications, cloud solutions,
               and AI systems with precision and clarity.
             </p>
+
+            {/* ✅ SOCIAL ICONS */}
+            <div className="flex gap-4">
+              <a
+                href="#"
+                aria-label="Instagram"
+                className="text-white/60 hover:text-[#940200] transition"
+              >
+                <Instagram size={18} />
+              </a>
+
+              <a
+                href="#"
+                aria-label="Facebook"
+                className="text-white/60 hover:text-[#940200] transition"
+              >
+                <Facebook size={18} />
+              </a>
+
+              <a
+                href="#"
+                aria-label="LinkedIn"
+                className="text-white/60 hover:text-[#940200] transition"
+              >
+                <Linkedin size={18} />
+              </a>
+            </div>
           </div>
 
           {/* LINKS */}

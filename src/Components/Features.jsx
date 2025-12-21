@@ -33,10 +33,10 @@ export default function Features() {
             "
           >
             <h3 className="text-5xl font-bold text-[#940200]">45%</h3>
-            <p className="mt-2 text-4xl">Cost Efficiency</p>
-            <p className="text-sm text-white mt-4">
+            <h5 className="mt-2 text-4xl">Cost Efficiency</h5>
+            <h5 className="text-sm text-white mt-4">
               Reduce operational costs with automation and optimization.
-            </p>
+            </h5>
           </div>
         ))}
       </div>

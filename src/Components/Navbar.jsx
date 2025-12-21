@@ -12,6 +12,7 @@ export default function Navbar() {
 
   const isHome = pathname === "/";
   const isPortfolio = pathname.startsWith("/portfolio");
+  const isBlog = pathname.startsWith("/blog");
 
   return (
     <nav className="sticky top-0 w-full z-50 bg-black/80 backdrop-blur border-b-0 md:border-b border-white">
@@ -31,7 +32,7 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* MOBILE MENU BUTTON — RIGHT SIDE */}
+        {/* MOBILE MENU BUTTON — RIGHT */}
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden text-white absolute right-6"
@@ -71,10 +72,21 @@ export default function Navbar() {
           >
             PORTFOLIO
           </Link>
+
+          <Link
+            href="/blog"
+            className={`px-4 py-1 rounded transition ${
+              isBlog
+                ? "bg-[#940200] text-white"
+                : "text-gray-300 hover:text-white hover:bg-white/10"
+            }`}
+          >
+            BLOG
+          </Link>
         </div>
       </div>
 
-      {/* MOBILE NAV — OVERLAY (UNCHANGED) */}
+      {/* MOBILE NAV */}
       {open && (
         <div
           className="
@@ -107,6 +119,18 @@ export default function Navbar() {
             }`}
           >
             PORTFOLIO
+          </Link>
+
+          <Link
+            href="/blog"
+            onClick={() => setOpen(false)}
+            className={`block px-4 py-2 rounded font-semibold ${
+              isBlog
+                ? "bg-[#940200] text-white"
+                : "text-gray-300 hover:bg-white/10"
+            }`}
+          >
+            BLOG
           </Link>
         </div>
       )}

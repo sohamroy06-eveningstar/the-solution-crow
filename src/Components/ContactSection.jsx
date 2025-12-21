@@ -40,10 +40,10 @@ export default function ContactSection() {
                 </span>
               </h3>
 
-              <p className="text-white/60 mb-8">
+              <h5 className="text-white/60 mb-8">
                 Drop a message — we’ll get back
                 faster than you expect.
-              </p>
+              </h5>
             </div>
 
             {/* RIGHT CONTENT */}
